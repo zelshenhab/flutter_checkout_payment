@@ -18,7 +18,7 @@ class ThankYouCard extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
-        color: const Color(0xFFD9D9D9),
+        color: const Color(0xFFEDEDED),
       ),
       child: Padding(
         padding: const EdgeInsets.only(top: 50 + 16, left: 22, right: 22),
