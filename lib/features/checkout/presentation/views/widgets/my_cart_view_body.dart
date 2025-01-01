@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_checkout_payment/core/widgets/custom_button.dart';
 import 'package:flutter_checkout_payment/features/checkout/presentation/views/widgets/cart_info_item.dart';
-import 'package:flutter_checkout_payment/features/checkout/presentation/views/widgets/payment_details.dart';
+import 'package:flutter_checkout_payment/features/checkout/presentation/views/widgets/payment_methods_list_view.dart';
 import 'package:flutter_checkout_payment/features/checkout/presentation/views/widgets/total_price_widget.dart';
 
 class MyCartViewBody extends StatelessWidget {
@@ -52,17 +52,49 @@ class MyCartViewBody extends StatelessWidget {
           ),
           CustomButton(
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) {
-                  return const PaymentDatailsView();
-                },
-              ));
+              // Navigator.of(context).push(MaterialPageRoute(
+              //   builder: (context) {
+              //     return const PaymentDatailsView();
+              //   },
+              // ));
+
+              showModalBottomSheet(
+                  context: context,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16)),
+                  builder: (context) {
+                    return const PaymentMethodsBottomSheet();
+                  });
             },
             text: 'Complete Payment',
           ),
           const SizedBox(
             height: 12,
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class PaymentMethodsBottomSheet extends StatelessWidget {
+  const PaymentMethodsBottomSheet({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.all(16),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SizedBox(
+            height: 16,
+          ),
+          PaymentMethodsListView(),
+          SizedBox(
+            height: 32,
+          ),
+          CustomButton(text: ('Continue'))
         ],
       ),
     );
