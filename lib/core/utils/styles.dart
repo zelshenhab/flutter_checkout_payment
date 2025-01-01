@@ -25,12 +25,12 @@ abstract class Styles {
       fontWeight: FontWeight.w600);
 
   static TextStyle style20 = TextStyle(
-      color: Colors.black.withOpacity(0.800000011920929),
+      color: Colors.black.withValues(alpha: 0.800000011920929),
       fontSize: 18,
       fontFamily: "Inter",
       fontWeight: FontWeight.w400);
   static TextStyle style22 = TextStyle(
-      color: Colors.black.withOpacity(0.800000011920929),
+      color: Colors.black.withValues(alpha: 0.800000011920929),
       fontSize: 22,
       fontFamily: "Inter",
       fontWeight: FontWeight.w500);

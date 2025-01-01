@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -13,9 +12,11 @@ class CardInfoWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 16),
       width: 305,
       decoration: ShapeDecoration(
-          color: Colors.white,
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15))),
+        color: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+      ),
       child: Row(
         children: [
           SvgPicture.asset("assets/images/master_card.svg"),
@@ -34,7 +35,7 @@ class CardInfoWidget extends StatelessWidget {
             TextSpan(
               text: 'Master Card **78',
               style: TextStyle(
-                  color: Colors.black.withOpacity(0.699999988079071),
+                  color: Colors.black.withValues(alpha: 0.699999988079071),
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w400,
                   fontSize: 16),
