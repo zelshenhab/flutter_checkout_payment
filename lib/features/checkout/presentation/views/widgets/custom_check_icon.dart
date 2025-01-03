@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class CustomCheckIcon extends StatelessWidget {
@@ -23,4 +22,3 @@ class CustomCheckIcon extends StatelessWidget {
     );
   }
 }
-
