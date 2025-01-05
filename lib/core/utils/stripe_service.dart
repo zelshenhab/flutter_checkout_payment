@@ -25,4 +25,8 @@ class StripeService {
           merchantDisplayName: 'Zeyad'),
     );
   }
+
+  Future displayPaymentSheet() async {
+    Stripe.instance.presentPaymentSheet();
+  }
 }
