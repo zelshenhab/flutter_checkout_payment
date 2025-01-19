@@ -44,9 +44,11 @@ class StripeService {
     var ephemeralKeyModel = await createEphemeralKey(
         customerId: paymentIntentInputModel.customerId);
     var initPaymentSheetInputModel = InitPaymentSheetInputModel(
-        clientSecret: paymentIntentModel.clientSecret!,
-        customerId: paymentIntentInputModel.customerId,
-        ephemeralKeySecret: ephemeralKeyModel.secret!);
+      clientSecret: paymentIntentModel.clientSecret!,
+      customerId: paymentIntentInputModel.customerId,
+      ephemeralKeySecret: ephemeralKeyModel.secret ?? '',
+    );
+
     await initPaymentSheet(
         initPaymentSheetInputModel: initPaymentSheetInputModel);
     await displayPaymentSheet();
@@ -57,14 +59,14 @@ class StripeService {
     var response = await apiService.post(
         body: {'customer': customerId},
         contentType: Headers.formUrlEncodedContentType,
-        url: 'https://api.stripe.com/v1/payment_intents',
+        url: 'https://api.stripe.com/v1/ephemeral_keys',
         token: ApiKeys.secretKey,
         headers: {
           'Authorization': 'Bearer ${ApiKeys.secretKey}',
           'Stripe-Version': '2024-12-18.acacia'
         });
 
-    var ephemeralKey = EphemeralKeyModel.fromJson(response.data);
+    var ephermeralKey = EphemeralKeyModel.fromJson(response.data);
 
     return EphemeralKeyModel();
   }
